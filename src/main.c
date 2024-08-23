@@ -82,7 +82,7 @@ double computePressureDifference(struct Fluid* fluid, struct Pipe* pipe) {
     double cross_section = UxHwDoubleUniformDist(pipe->cross_section-pipe->cross_section_tolerance, pipe->cross_section+pipe->cross_section_tolerance);
 
     //Fluid quantities: 
-    // dynamic viscosity is chosen as log-normal with small variance, flow_rate chosen as uniform of the form: mean ± error
+    // dynamic viscosity is chosen as log-normal with small variance, flow_rate chosen as uniform over an interval of the form: mean ± error
     double flow_rate = UxHwDoubleUniformDist(fluid->mean_flow_rate-fluid->flow_rate_stdev, fluid->mean_flow_rate+fluid->flow_rate_stdev);
     double viscosity = UxHwDoubleLognormalDist(fluid->mean_dynamic_viscosity, fluid->dynamic_viscosity_stdev);
 
